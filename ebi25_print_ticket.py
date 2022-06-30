@@ -40,38 +40,42 @@ template = Template(
 )
 
 
-# def send_pdf_to_printer(pdf_path):
-#     command = 'lp {}'.format(pdf_path)
-#     os.system(command)
-#     app.logger.info('printed with command: {}'.format(command))
+def send_pdf_to_printer(pdf_path):
+    command = "lp {}".format(pdf_path)
+    os.system(command)
+    app.logger.info("printed with command: {}".format(command))
 
 
-# def generate_pdf(number):
-#     filename = uuid.uuid4().hex
-#     html_path = os.path.join(TMP, '{}.html'.format(filename))
-#     pdf_path = os.path.join(TMP, '{}.pdf'.format(filename))
-#     with open(html_path, 'w') as f:
-#         f.write(template.render(number=number))
-#     app.logger.info('generated HTML file: {}'.format(html_path))
-#     pdfkit.from_file(html_path, pdf_path)
-#     app.logger.info('generated PDF file: {}'.format(pdf_path))
-#     return html_path, pdf_path
+def generate_pdf(number):
+    filename = uuid.uuid4().hex
+    html_path = os.path.join(TMP, "{}.html".format(filename))
+    pdf_path = os.path.join(TMP, "{}.pdf".format(filename))
+    with open(html_path, "w") as f:
+        f.write(template.render(number=number))
+    app.logger.info("generated HTML file: {}".format(html_path))
+    pdfkit.from_file(html_path, pdf_path)
+    app.logger.info("generated PDF file: {}".format(pdf_path))
+    return html_path, pdf_path
 
 
-# def clean_up(html_path, pdf_path):
-#     for path in [html_path, pdf_path]:
-#         os.remove(path)
-#         app.logger.info('removed {}'.format(path))
+def clean_up(html_path, pdf_path):
+    for path in [html_path, pdf_path]:
+        os.remove(path)
+        app.logger.info("removed {}".format(path))
 
 
-# def success():
-#     app.logger.info('success')
-#     return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
+def success():
+    app.logger.info("success")
+    return json.dumps({"success": True}), 200, {"ContentType": "application/json"}
 
 
-# def failure(exception):
-#     app.logger.info('failure: {}'.format(exception))
-#     return json.dumps({'success': False, 'exception': exception}), 400, {'ContentType': 'application/json'}
+def failure(exception):
+    app.logger.info("failure: {}".format(exception))
+    return (
+        json.dumps({"success": False, "exception": exception}),
+        400,
+        {"ContentType": "application/json"},
+    )
 
 
 # @app.route("/print/<int:number>")
@@ -96,7 +100,7 @@ template = Template(
 def test():
     # pdf_path = generate_pdf('123456')
     # send_pdf_to_printer(pdf_path)
-    print("This is Andrew")
+    print("I'm laughing at you")
 
 
 if __name__ == "__main__":
