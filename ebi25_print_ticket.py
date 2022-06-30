@@ -42,8 +42,7 @@ template = Template(
 
 def send_pdf_to_printer(pdf_path):
     command = "lp {}".format(pdf_path)
-    print(command)
-    # os.system(command)
+    os.system(command)
     app.logger.info("printed with command: {}".format(command))
 
 
