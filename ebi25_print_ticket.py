@@ -99,7 +99,7 @@ def print_number(number):
 
 
 def test():
-    pdf_path = generate_pdf("123456")
+    _, pdf_path = generate_pdf("123456")
     send_pdf_to_printer(pdf_path)
 
 
