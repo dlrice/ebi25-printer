@@ -42,7 +42,8 @@ template = Template(
 
 def send_pdf_to_printer(pdf_path):
     command = "lp {}".format(pdf_path)
-    os.system(command)
+    print(command)
+    # os.system(command)
     app.logger.info("printed with command: {}".format(command))
 
 
@@ -100,7 +101,6 @@ def print_number(number):
 def test():
     pdf_path = generate_pdf("123456")
     send_pdf_to_printer(pdf_path)
-    print("Merry Christmas")
 
 
 if __name__ == "__main__":
