@@ -99,8 +99,8 @@ def print_number(number):
 
 def test():
     pdf_path = generate_pdf("123456")
-    # send_pdf_to_printer(pdf_path)
-    print("HAHAHAHA")
+    send_pdf_to_printer(pdf_path)
+    print("Merry Christmas")
 
 
 if __name__ == "__main__":
